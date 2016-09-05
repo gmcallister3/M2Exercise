@@ -30,9 +30,7 @@ public class Person1 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  StringBuilder sb = new StringBuilder();
-      sb.append(input.substring(2, input.length)).append(input.substring(0, 2));
-	  return sb.toString();
+	  return subRoutine(input);
 	}
 
 	/**
@@ -46,5 +44,11 @@ public class Person1 {
 	public String toString(String input) {
 	  return name + calc(input);
 	}
+
+    private String subRoutine(String input) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(input.substring(2, input.length)).append(input.substring(0, 2));
+  	     return sb.toString();
+    }
 
 }
