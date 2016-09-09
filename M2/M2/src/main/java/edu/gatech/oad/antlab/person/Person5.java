@@ -31,6 +31,9 @@ public class Person5 {
 	 */
 	private String calc(String input) {
 	  //Person 5 put your implementation here
+      if (input.length() < 2) {
+        throw new StringIndexOutOfBoundsException("The input is too short");
+      }
       return input.subString(2).concat(input.subString(0, 2));
 	}
 	
