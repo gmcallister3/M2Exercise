@@ -36,7 +36,7 @@ public class Person5 {
       }
       return input.substring(2).concat(input.substring(0, 2));
 	}
-	
+
 	/**
 	 * Return a string rep of this object
 	 * that varies with an input string
