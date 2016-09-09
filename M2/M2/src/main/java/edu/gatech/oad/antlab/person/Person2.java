@@ -1,5 +1,7 @@
 package edu.gatech.oad.antlab.person;
 
+import java.util.Random;
+
 /**
  *  A simple class for person 2
  *  returns their name and a
@@ -30,8 +32,19 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+		Random randGen = new Random();
+		String processing;
+		String output = "";
+		String temp;
+		int rand;
+		while (processing.length() > 0) {
+			rand = randGen.nextInt(processing.length());
+			output = output + processing.charAt(rand);
+			temp = processing.substring(0, rand) + processing.substring(rand + 1);
+			processing = temp;
+		}
+		return output;
+
 	}
 	/**
 	 * Return a string rep of this object
