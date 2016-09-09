@@ -34,7 +34,7 @@ public class Person5 {
       if (input.length() < 2) {
         throw new StringIndexOutOfBoundsException("The input is too short");
       }
-      return input.subString(2).concat(input.subString(0, 2));
+      return input.substring(2).concat(input.substring(0, 2));
 	}
 	
 	/**
