@@ -1,15 +1,16 @@
-#first gradle build
-#M2 exercise
-#@author jgaul8
+//first gradle build
+//M2 exercise
+//@author jgaul8
 
 apply plugin : 'java'
 
-repositories : {
+repositories {
     mavenCentral()
 }
 
-dependencies : {
+dependencies {
     compile fileTree(dir: 'lib', include: '*.jar')
+    runtime fileTree(dir: 'lib', include: '*.jar')
     testCompile group: 'junit', name:'junit', version: '4.+'
 }
 
@@ -19,18 +20,23 @@ sourceCompatibility = 1.8
 version = 1.8
 
 task compileTest(dependsOn: compileTestJava) << {
-     description = 'Compiles the unit tests for the project'
-     println 'compiling unit tests'
+    description = 'Compiles the unit tests for the project'
+    println 'compiling unit tests'
 }
 
-task << {
-     decription = 'Runs unit tests after compilation'
-     println 'running unit tests'
+test << {
+    decription = 'Runs unit tests after compilation'
+    println 'running unit tests'
 }
 
 compileJava << {
-     decription = 'Compiles java files'
-     println 'Compiling java files'
+    description = 'Compiles and builds java files'
+    println 'Compiling java files'
+}
+
+javadoc << {
+    description = 'Builds html documentation'
+    println 'Building html documentation'
 }
 
 clean << {
