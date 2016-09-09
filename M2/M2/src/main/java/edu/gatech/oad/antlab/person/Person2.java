@@ -33,15 +33,14 @@ public class Person2 {
 	 */
 	private String calc(String input) {
 		Random randGen = new Random();
-		String processing;
 		String output = "";
 		String temp;
 		int rand;
-		while (processing.length() > 0) {
-			rand = randGen.nextInt(processing.length());
-			output = output + processing.charAt(rand);
-			temp = processing.substring(0, rand) + processing.substring(rand + 1);
-			processing = temp;
+		while (input.length() > 0) {
+			rand = randGen.nextInt(input.length());
+			output = output + input.charAt(rand);
+			temp = input.substring(0, rand) + input.substring(rand + 1);
+			input = temp;
 		}
 		return output;
 
