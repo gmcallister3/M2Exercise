@@ -16,7 +16,7 @@ dependencies {
 defaultTasks 'jar'
 
 sourceCompatibility = 1.8
-version = 1.8
+version = 1.0
 
 task compileTest(dependsOn: compileTestJava) << {
     description = 'Compiles the unit tests for the project'
