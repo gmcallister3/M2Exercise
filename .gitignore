@@ -3,4 +3,4 @@
 
 #Ignores gradle folder stuff
 build/
-.gradle/
+gradle/
