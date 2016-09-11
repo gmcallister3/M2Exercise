@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+repositories {
+    mavenCentral()
+}
+
+version = '1.0'
+defaultTasks 'jar'
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
+
+jar {
+    description = 'To create the executable jar file for the project'
+    manifest {
+        attributes( 'Implementation-Title': 'M2 Gradle Exercise',
+                    'Implementation-version': version,
+                    'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                    'Class-Path': configurations.compile.files.join(" ")
+                  )
+    }
+    println 'Creating jar'
+}
+
+task compileTest(dependsOn: compileTestJava) {
+    description = 'I wanna do it!'
+    println 'CompileTest'
+}
+
+compileJava << {
+    println 'CopileJave'
+}
+
+javadoc << {
+    prinln 'Javadoc'
+}
+
+clean << {
+    prinln 'Clean'
+}
