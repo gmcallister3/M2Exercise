@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+defaultTasks 'jar'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+task compileTest(dependsOn: compileTestJava) {
+    description = 'Compiles the unit tests for the project'
+    println 'Compiling unit tests'
+}
+
+compileJava << {
+    description = 'Compiles and builds the project'
+    println "Using build file '$buildFile.name' in '$buildFile.parentFile.name' to compile Java."
+}
+
+javadoc << {
+    description = 'Creates the html documentation for the project'
+    println 'Creating JavaDocs'
+}
+
+clean << {
+    description = 'Removes all the files created by this project'
+    println 'Cleaning build directory'
+}

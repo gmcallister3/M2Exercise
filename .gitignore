@@ -1,0 +1,6 @@
+#Ignores mac's .DS_STORE
+.DS_Store
+
+#Ignores gradle folder stuff
+build/
+.gradle/

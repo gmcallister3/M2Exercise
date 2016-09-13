@@ -1,0 +1,56 @@
+//first gradle build
+//M2 exercise
+//@author jgaul8
+
+apply plugin : 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: '*.jar')
+    testCompile group: 'junit', name:'junit', version: '4.+'
+}
+
+defaultTasks 'jar'
+
+sourceCompatibility = 1.8
+version = 1.0
+
+task compileTest(dependsOn: compileTestJava) << {
+    description = 'Compiles the unit tests for the project'
+    println 'compiling unit tests'
+}
+
+test << {
+    decription = 'Runs unit tests after compilation'
+    println 'running unit tests'
+}
+
+compileJava << {
+    description = 'Compiles and builds java files'
+    println 'Compiling java files'
+}
+
+javadoc << {
+    description = 'Builds html documentation'
+    println 'Building html documentation'
+}
+
+clean << {
+    description = 'Removes all .class files'
+    println 'removing class files'
+}
+
+jar.doFirst {
+    description = 'Creates .jar file'
+    manifest {
+        attributes('Implementation-Title' : 'M2 gradle build',
+                    'Implementation-version' : version,
+                    'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                    'Class-Path' : configurations.compile.files.join(" ")
+                    )
+    }
+    println 'Jar is being created'
+}
