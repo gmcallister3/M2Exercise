@@ -13,7 +13,7 @@ dependencies {
 }
 
 jar {
-    description = 'To create the executable jar file for the project'
+    description = 'Creates the executable jar file for the project'
     manifest {
         attributes( 'Implementation-Title': 'M2 Gradle Exercise',
                     'Implementation-version': version,
@@ -21,11 +21,11 @@ jar {
                     'Class-Path': configurations.compile.files.join(" ")
                   )
     }
-    println 'Creating jar'
+    println 'Creates jar'
 }
 
 task compileTest(dependsOn: compileTestJava) {
-    description = 'I wanna do it!'
+    description = 'Java compile test'
     println 'CompileTest'
 }
 
@@ -34,9 +34,9 @@ compileJava << {
 }
 
 javadoc << {
-    prinln 'Javadoc'
+    println 'Javadoc'
 }
 
 clean << {
-    prinln 'Clean'
+    println 'Clean'
 }
